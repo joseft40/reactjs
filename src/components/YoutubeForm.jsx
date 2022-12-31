@@ -1,4 +1,4 @@
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from 'yup'
 
 const initialValues = {
@@ -32,9 +32,7 @@ function YoutubeForm() {
             id="name"
             name="name"
           />
-          {formik.touched.name && formik.errors.name ? (
-            <div className="error">{formik.errors.name}</div>
-          ) : null}
+          <ErrorMessage name='name'/>
         </div>
 
         <div className="form-control">
@@ -44,9 +42,7 @@ function YoutubeForm() {
             id="email"
             name="email"
           />
-          {formik.touched.email && formik.errors.email ? (
-            <div className="error">{formik.errors.email}</div>
-          ) : null}
+          <ErrorMessage name='email'/>
         </div>
 
         <div className="form-control">
@@ -56,9 +52,7 @@ function YoutubeForm() {
             id="channel"
             name="channel"
           />
-          {formik.touched.channel && formik.errors.channel ? (
-            <div className="error">{formik.errors.channel}</div>
-          ) : null}
+          <ErrorMessage name='channel'/>
         </div>
         <button>Submit</button>
       </Form>
