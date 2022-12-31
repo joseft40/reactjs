@@ -1,5 +1,5 @@
 # reactjs
-### URL
+### RESOURCES:
 1. https://roadmap.sh/react
 2. https://vitejs.dev/
 3. https://formik.org/docs/overview
