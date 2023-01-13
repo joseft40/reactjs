@@ -5,6 +5,8 @@ const initialValues = {
   name: "",
   email: "",
   channel: "",
+  comments: "",
+  address: ""
 };
 
 const onSubmit = (values) => {
@@ -31,8 +33,9 @@ function YoutubeForm() {
             type="text"
             id="name"
             name="name"
+            placeholder="Name"
           />
-          <ErrorMessage name='name'/>
+          <ErrorMessage name='name' component="div"/>
         </div>
 
         <div className="form-control">
@@ -41,8 +44,9 @@ function YoutubeForm() {
             type="email"
             id="email"
             name="email"
+            placeholder="Email"
           />
-          <ErrorMessage name='email'/>
+          <ErrorMessage name='email' component="div"/>
         </div>
 
         <div className="form-control">
@@ -51,8 +55,36 @@ function YoutubeForm() {
             type="text"
             id="channel"
             name="channel"
+            placeholder="Youtube channel name"
           />
-          <ErrorMessage name='channel'/>
+          <ErrorMessage name='channel' component="div"/>
+        </div>
+
+        <div className="form-control">
+          <label htmlFor="comments">Comments</label>
+          <Field
+            as="textarea"
+            id="comments"
+            name="comments"
+            placeholder="Comments"
+          />
+        </div>
+
+        <div className="form-control">
+          <label htmlFor="address">Address</label>
+          <Field
+            name="address"
+          >
+            {props => {
+              const {field, form, meta} = props;
+              return (
+                <div>
+                  <input type="text" id="address" {...field} />
+                  {meta.touched && meta.error ? <div>{meta.error}</div> : null}
+                </div>
+              )
+            }}
+          </Field>
         </div>
         <button>Submit</button>
       </Form>
